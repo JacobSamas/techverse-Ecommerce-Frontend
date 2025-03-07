@@ -1,12 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-// Function to load a 3D model with bigger scaling
+// Responsive scaling based on screen size
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    setMatches(media.matches);
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [query]);
+  return matches;
+}
+
+// Function to load a 3D model with dynamic scaling
 function ProductModel({ modelPath }) {
   const { scene } = useGLTF(modelPath);
-  return <primitive object={scene} scale={[10, 10, 10]} position={[0, -1, 0]} />;
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  return (
+    <primitive
+      object={scene}
+      scale={isMobile ? [6, 6, 6] : [10, 10, 10]} // Smaller scale for mobile
+      position={[0, -1, 0]}
+    />
+  );
 }
 
 export default function Hero3D() {
@@ -14,8 +34,8 @@ export default function Hero3D() {
   const [currentModel, setCurrentModel] = useState(0); // Track active model
 
   return (
-    <div className="relative w-full h-full flex flex-col items-center">
-      <Canvas className="w-full h-[60vh] md:h-[85vh]">
+    <div className="relative w-full h-full flex flex-col items-center overflow-hidden">
+      <Canvas className="w-full h-[50vh] md:h-[85vh]">
         {/* Controls */}
         <OrbitControls enableZoom={false} autoRotate />
 
@@ -23,7 +43,7 @@ export default function Hero3D() {
         <ambientLight intensity={0.8} />
         <directionalLight position={[3, 2, 1]} intensity={1.5} />
 
-        {/* Enlarged 3D Model */}
+        {/* Responsive 3D Model */}
         <ProductModel modelPath={models[currentModel]} />
       </Canvas>
 

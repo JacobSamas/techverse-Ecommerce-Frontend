@@ -1,0 +1,73 @@
+export const products = [
+    {
+      id: 1,
+      name: "Smartphone X",
+      price: "₹65,999",
+      image: "/products/smartphone.jpg",
+      category: "Smartphone",
+    },
+    {
+      id: 2,
+      name: "Gaming Laptop Pro",
+      price: "₹1,25,999",
+      image: "/products/laptop.jpg",
+      category: "Laptop",
+    },
+    {
+      id: 3,
+      name: "VR Headset Ultra",
+      price: "₹41,999",
+      image: "/products/vr.jpg",
+      category: "VR Headset",
+    },
+    {
+      id: 4,
+      name: "Smartwatch Elite",
+      price: "₹24,999",
+      image: "/products/smartwatch.jpg",
+      category: "Smartwatch",
+    },
+    {
+      id: 5,
+      name: "Wireless Earbuds Pro",
+      price: "₹8,999",
+      image: "/products/earbuds.jpg",
+      category: "Audio",
+    },
+    {
+      id: 6,
+      name: "Mechanical Gaming Keyboard",
+      price: "₹9,499",
+      image: "/products/keyboard.jpg",
+      category: "Accessories",
+    },
+    {
+      id: 7,
+      name: "Curved 4K Monitor",
+      price: "₹58,999",
+      image: "/products/monitor.jpg",
+      category: "Display",
+    },
+    {
+      id: 8,
+      name: "Gaming Mouse RGB",
+      price: "₹4,999",
+      image: "/products/mouse.jpg",
+      category: "Accessories",
+    },
+    {
+      id: 9,
+      name: "Portable SSD 1TB",
+      price: "₹12,499",
+      image: "/products/ssd.jpg",
+      category: "Storage",
+    },
+    {
+      id: 10,
+      name: "Smart Home Speaker",
+      price: "₹11,999",
+      image: "/products/speaker.jpg",
+      category: "Smart Home",
+    },
+  ];
+  

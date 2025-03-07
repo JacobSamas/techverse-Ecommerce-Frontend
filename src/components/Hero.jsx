@@ -28,7 +28,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="w-full h-[80vh] flex flex-col md:flex-row items-center justify-center text-center px-4 md:px-10 relative">
+    <section
+      ref={heroRef}
+      className="w-full h-[80vh] flex flex-col md:flex-row items-center justify-center text-center px-4 md:px-10 relative overflow-hidden"
+    >
       {/* Left Side: Text */}
       <div className="md:w-1/2">
         <h1 className={`text-4xl md:text-6xl font-bold ${colorClasses[themeColor]}`}>
@@ -48,7 +51,7 @@ export default function Hero() {
       </div>
 
       {/* Right Side: 3D Model */}
-      <div className="md:w-1/2 h-[50vh] md:h-[80vh]">
+      <div className="md:w-1/2 h-[45vh] md:h-[80vh] overflow-hidden">
         <Hero3D />
       </div>
     </section>
